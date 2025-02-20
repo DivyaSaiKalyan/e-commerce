@@ -12,8 +12,8 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use("/category", categoryRoutes);
-app.use("/itemCatalogue", catalogueRoutes);
-app.use("/productCatalogue", productCatalogueRoutes);
+app.use("/category/itemCatalogue", catalogueRoutes);
+app.use("/category/itemCatalogue/productCatalogue", productCatalogueRoutes);
 app.use(errorHandler);
 connectDB();
 
