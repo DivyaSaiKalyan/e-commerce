@@ -8,6 +8,6 @@ const {
 
 router.route("/create").post(createItemCatalogue);
 router.route("/update/:item_code").put(updateItemCatalogue);
-router.route("/get/:item_code").get(getItemByItemCode);
+router.route("/get/:item_code").post(getItemByItemCode);
 
 module.exports = router;

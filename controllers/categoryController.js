@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler");
-const Category = require("../models/Category");
 const { sequelize } = require("../config/dbConnection");
+const Category = require("../models/eCommerce/Category");
 
 //@dec create Category
 //@route POST /category/create

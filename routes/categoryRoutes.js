@@ -9,7 +9,7 @@ const {
 
 router.route("/create").post(createCategory);
 router.route("/update/:category_code").put(updateCategory);
-router.route("/get/:category_code").get(getCategoryByCategoryCode);
-router.route("/get").get(getAllCategories);
+router.route("/get/:category_code").post(getCategoryByCategoryCode);
+router.route("/get").post(getAllCategories);
 
 module.exports = router;

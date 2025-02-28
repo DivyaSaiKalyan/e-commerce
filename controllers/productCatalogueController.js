@@ -1,9 +1,9 @@
 const asyncHandler = require("express-async-handler");
 const { sequelize } = require("../config/dbConnection");
-const ProductCatalogue = require("../models/productCatalogue");
-const Category = require("../models/Category");
-const ItemCatalogue = require("../models/ItemCatalogue");
-const ProductInfo = require("../models/productInfo");
+const ProductInfo = require("../models/eCommerce/productInfo");
+const Category = require("../models/eCommerce/Category");
+const ItemCatalogue = require("../models/eCommerce/ItemCatalogue");
+const ProductCatalogue = require("../models/eCommerce/productCatalogue");
 
 //@dec Create Product Catalogue
 //@route POST /productCatalogue/create
@@ -138,7 +138,6 @@ const createProductCatalogue = asyncHandler(async (req, res) => {
       },
     ],
   });
-  res.status(201).json(getCreatedProduct);
 
   if (getCreatedProduct) {
     res.status(201).json({
@@ -148,6 +147,116 @@ const createProductCatalogue = asyncHandler(async (req, res) => {
   } else {
     res.status(400);
     throw new Error("Product Catalogue not created");
+  }
+});
+
+//@dec Create Product and item Catalogue
+//@route POST /productCatalogue/itemCatalogue/create
+//@access public
+const createProductAndItemCatalogue = asyncHandler(async (req, res) => {
+  const {
+    category_code,
+    item_name,
+    item_icon,
+    country_code,
+    product_name,
+    product_desc,
+    product_size,
+    product_color,
+    product_price,
+    market_price,
+    photo_links,
+    ref_link,
+    product_dimensions,
+    item_weight,
+    manufacturer,
+    product_info,
+  } = req.body;
+
+  if (
+    !category_code ||
+    !item_name ||
+    !item_icon ||
+    !country_code ||
+    !product_name ||
+    !product_desc ||
+    !product_size ||
+    !product_color ||
+    !product_price ||
+    !market_price ||
+    !photo_links ||
+    !ref_link ||
+    !product_dimensions ||
+    !item_weight ||
+    !manufacturer ||
+    !product_info
+  ) {
+    res.status(400);
+    throw new Error("All fields are required");
+  }
+  let itemCatalogue;
+  itemCatalogue = await ItemCatalogue.findOne({
+    where: {
+      category_code,
+      item_name: sequelize.where(
+        sequelize.fn("LOWER", sequelize.col("item_name")),
+        "=",
+        item_name.toLowerCase()
+      ),
+    },
+  });
+  if (!itemCatalogue) {
+    await sequelize.sync({ alter: true });
+    itemCatalogue = await ItemCatalogue.create({
+      category_code,
+      item_name,
+      item_icon,
+    });
+  }
+  await sequelize.sync({ alter: true });
+  const productCatalogue = await ProductCatalogue.create({
+    country_code,
+    item_code: itemCatalogue.item_code,
+    product_name,
+    product_desc,
+    product_size,
+    product_color,
+    product_price,
+    market_price,
+    photo_links,
+    ref_link,
+    product_dimensions,
+    item_weight,
+    manufacturer,
+  });
+  await sequelize.sync({ alter: true });
+  await ProductInfo.create({
+    product_code: productCatalogue.product_code,
+    product_info,
+  });
+
+  if (productCatalogue && itemCatalogue) {
+    const resultData = await ItemCatalogue.findAll({
+      where: { item_code: itemCatalogue.item_code },
+      include: [
+        {
+          model: ProductCatalogue,
+          as: "ProductCatalogues",
+          include: [
+            {
+              model: ProductInfo,
+              as: "ProductInfos",
+            },
+          ],
+        },
+      ],
+    });
+    res.status(201).json({
+      statusResult: "success",
+      statusCode: 201,
+      message: "Product Catalogue created successfully",
+      data: resultData,
+    });
   }
 });
 
@@ -367,4 +476,5 @@ module.exports = {
   updateProductCatalogue,
   getProductByProductCode,
   getProductsByCategory,
+  createProductAndItemCatalogue,
 };
