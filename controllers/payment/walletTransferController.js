@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const { sequelize } = require("../../config/dbConnection");
 const WalletTransaction = require("../../models/Payment/walletTransactions");
-const User = require("../../models/user");
+const User = require("../../models/User/user");
 
 //@dec create createWalletTransfer
 //@route POST /bank/createWalletTransfer

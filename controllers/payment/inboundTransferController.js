@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const { sequelize } = require("../../config/dbConnection");
 const InboundTransaction = require("../../models/Payment/inboundTransactions");
-const User = require("../../models/user");
+const User = require("../../models/User/user");
 
 //@dec create createInboundTransfer
 //@route POST /bank/createInboundTransfer

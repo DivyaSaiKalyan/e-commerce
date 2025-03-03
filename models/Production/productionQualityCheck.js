@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../../config/dbConnection");
 const Production = require("./production");
-const User = require("../user");
+const User = require("../User/user");
 
 const ProductionQualityCheck = sequelize.define(
   "ProductionQualityCheck",

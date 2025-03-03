@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const { sequelize } = require("../config/dbConnection");
 
-const User = require("../models/user");
+const User = require("../models/User/user");
 const DeliveryAddress = require("../models/eCommerce/deliveryAddress");
 
 //@dec get delivery address by user id

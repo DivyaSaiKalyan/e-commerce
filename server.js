@@ -18,6 +18,13 @@ const mobileTransferRoutes = require("./routes/payment/mobileTransferRoutes");
 const outboundTransferRoutes = require("./routes/payment/outboundTransferRoutes");
 const inboundTransferRoutes = require("./routes/payment/inboundTransferRoutes");
 const walletTransferRoutes = require("./routes/payment/walletTransferRoutes");
+const startupRoutes = require("./routes/IIO/startupIdeaRoutes");
+const companyRoutes = require("./routes/IIO/companyRoutes");
+const stockAllocationRoutes = require("./routes/IIO/stockAllocationRoutes");
+const stockOrderTransferRoutes = require("./routes/IIO/stockOrderTransferRoutes");
+const vgcStockRoutes = require("./routes/IIO/vgcRoutes");
+const dividentRoutes = require("./routes/IIO/dividendRoutes");
+const investmentRoutes = require("./routes/IIO/investmentRoutes");
 
 const app = express();
 
@@ -40,6 +47,13 @@ app.use("/bank/modiletransfer", mobileTransferRoutes);
 app.use("/bank/outboundtransfer", outboundTransferRoutes);
 app.use("/bank/inboundtransfer", inboundTransferRoutes);
 app.use("/bank/wallettransfer", walletTransferRoutes);
+app.use("/user/startup", startupRoutes);
+app.use("/user/company", companyRoutes);
+app.use("/user/stockAllocation", stockAllocationRoutes);
+app.use("/user/stockOrderTransfer", stockOrderTransferRoutes);
+app.use("/stock", vgcStockRoutes);
+app.use("/stock/divident", dividentRoutes);
+app.use("/stock/investment", investmentRoutes);
 app.use(errorHandler);
 connectDB();
 

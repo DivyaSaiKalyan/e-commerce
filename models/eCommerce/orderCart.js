@@ -1,8 +1,8 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../../config/dbConnection");
-const User = require("../user.js");
 const DeliveryAddress = require("./deliveryAddress.js");
 const Store = require("../Production/store.js");
+const User = require("../User/user.js");
 
 const OrderCart = sequelize.define(
   "OrderCart",

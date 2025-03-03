@@ -4,7 +4,7 @@ const {
   generateUniqueBatchNumberForProduction,
 } = require("../services/helperService");
 const Production = require("../models/Production/production");
-const User = require("../models/user");
+const User = require("../models/User/user");
 const ProductCatalogue = require("../models/eCommerce/productCatalogue");
 const ProductionMaterial = require("../models/Production/productionMaterial");
 const ProductionQualityCheck = require("../models/Production/productionQualityCheck");

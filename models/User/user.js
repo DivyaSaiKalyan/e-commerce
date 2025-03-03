@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const { sequelize } = require("../config/dbConnection");
+const { sequelize } = require("../../config/dbConnection");
 
 const User = sequelize.define(
   "User",
@@ -62,6 +62,11 @@ const User = sequelize.define(
     },
     lng_location: {
       type: DataTypes.STRING,
+    },
+    user_status: {
+      type: DataTypes.ENUM("Active", "Inactive"),
+      allowNull: false,
+      defaultValue: "Active",
     },
     created_date: {
       type: DataTypes.DATE,

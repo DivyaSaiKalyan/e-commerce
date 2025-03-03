@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const { sequelize } = require("../config/dbConnection");
-const User = require("../models/user");
+const User = require("../models/User/user");
 const Store = require("../models/Production/store");
 
 //@dec create store
