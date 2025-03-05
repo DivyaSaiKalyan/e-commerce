@@ -13,7 +13,7 @@ const JobExperience = sequelize.define("JobExperience", {
     allowNull: false,
     references: {
       model: User,
-      key: "id",
+      key: "user_id",
     },
   },
   company_name: {

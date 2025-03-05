@@ -13,7 +13,7 @@ const GapAccountReferrals = sequelize.define("GapAccountReferrals", {
     allowNull: false,
     references: {
       model: User,
-      key: "id",
+      key: "user_id",
     },
   },
   ref_user_id: {
@@ -21,7 +21,7 @@ const GapAccountReferrals = sequelize.define("GapAccountReferrals", {
     allowNull: false,
     references: {
       model: User,
-      key: "id",
+      key: "user_id",
     },
   },
   ref_profile_type: {

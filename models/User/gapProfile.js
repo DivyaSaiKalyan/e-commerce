@@ -13,7 +13,7 @@ const GapProfile = sequelize.define("GapProfile", {
     allowNull: false,
     references: {
       model: User,
-      key: "id",
+      key: "user_id",
     },
   },
   profile_type: {

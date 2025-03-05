@@ -6,7 +6,7 @@ const catalogueRoutes = require("./routes/catalogueRoutes");
 const categoryRoutes = require("./routes/categoryRoutes");
 const productCatalogueRoutes = require("./routes/productCatalogueRoutes");
 const orderCartRoutes = require("./routes/orderCartRoutes");
-const userRoutes = require("./routes/userRoutes");
+const userRoutes = require("./routes/user/userRoutes");
 const productionRoutes = require("./routes/productionRoutes");
 const storeRoutes = require("./routes/storeRoutes");
 const storeInventoryRoutes = require("./routes/storeInventoryRoutes");
@@ -25,6 +25,7 @@ const stockOrderTransferRoutes = require("./routes/IIO/stockOrderTransferRoutes"
 const vgcStockRoutes = require("./routes/IIO/vgcRoutes");
 const dividentRoutes = require("./routes/IIO/dividendRoutes");
 const investmentRoutes = require("./routes/IIO/investmentRoutes");
+const walletRoutes = require("./routes/user/walletRoutes");
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use("/category/itemCatalogue", catalogueRoutes);
 app.use("/category/itemCatalogue/productCatalogue", productCatalogueRoutes);
 app.use("/ordercart", orderCartRoutes);
 app.use("/user", userRoutes);
+app.use("/user/wallet", walletRoutes);
 app.use("/production", productionRoutes);
 app.use("/store", storeRoutes);
 app.use("/storeinventory", storeInventoryRoutes);

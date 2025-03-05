@@ -13,7 +13,7 @@ const Education = sequelize.define("Education", {
     allowNull: false,
     references: {
       model: User,
-      key: "id",
+      key: "user_id",
     },
   },
   course_name: {

@@ -24,7 +24,7 @@ const Role = sequelize.define(
   },
   {
     tableName: "role",
-    timestamps: false, // No default createdAt and updatedAt
+    timestamps: false,
   }
 );
 

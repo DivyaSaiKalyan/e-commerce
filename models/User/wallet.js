@@ -15,7 +15,7 @@ const Wallet = sequelize.define(
       allowNull: false,
       references: {
         model: User, // Foreign key reference
-        key: "id",
+        key: "user_id",
       },
     },
     symbol: {

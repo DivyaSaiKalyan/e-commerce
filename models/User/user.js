@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../../config/dbConnection");
+const Role = require("./role");
 
 const User = sequelize.define(
   "User",
@@ -12,6 +13,16 @@ const User = sequelize.define(
     password_hash: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    role_id: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
+      references: {
+        model: Role, // Foreign key reference to Role table
+        key: "id",
+      },
+      onUpdate: "CASCADE",
+      onDelete: "CASCADE",
     },
     area_code: {
       type: DataTypes.INTEGER,
@@ -26,7 +37,7 @@ const User = sequelize.define(
       allowNull: false,
     },
     profile_image: {
-      type: DataTypes.TEXT, // URL for profile pic
+      type: DataTypes.TEXT,
     },
     gender: {
       type: DataTypes.STRING,
@@ -54,7 +65,7 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isEmail: true, // Ensure valid email format
+        isEmail: true,
       },
     },
     lat_location: {
@@ -71,7 +82,7 @@ const User = sequelize.define(
     created_date: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW, // System generated timestamp
+      defaultValue: DataTypes.NOW,
     },
     updated_date: {
       type: DataTypes.DATE,
@@ -84,5 +95,11 @@ const User = sequelize.define(
     tableName: "user",
   }
 );
+
+// Define Relationship: User belongs to Role
+User.belongsTo(Role, {
+  foreignKey: "role_id",
+  as: "Role",
+});
 
 module.exports = User;

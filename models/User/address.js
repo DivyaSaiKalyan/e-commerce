@@ -13,7 +13,7 @@ const Address = sequelize.define("Address", {
     allowNull: false,
     references: {
       model: User,
-      key: "id",
+      key: "user_id",
     },
   },
   address_type: {
