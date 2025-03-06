@@ -5,7 +5,7 @@ const {
   createProductionMaterial,
   createQualityInspection,
   getProductionByBatchNo,
-} = require("../controllers/production/productionController");
+} = require("../../controllers/production/productionController");
 const router = express.Router();
 
 router.route("/create").post(createProduction);

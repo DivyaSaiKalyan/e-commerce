@@ -9,7 +9,7 @@ const {
   getOrderTracking,
   getOrdersByUserId,
   getOrdersByStoreId,
-} = require("../controllers/order/orderCartController");
+} = require("../../controllers/order/orderCartController");
 const router = express.Router();
 
 router.route("/create/:user_id/:store_id").post(createOrderCart);

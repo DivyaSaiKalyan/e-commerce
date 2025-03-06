@@ -4,7 +4,7 @@ const {
   updateCategory,
   getCategoryByCategoryCode,
   getAllCategories,
-} = require("../controllers/category/categoryController");
+} = require("../../controllers/category/categoryController");
 const router = express.Router();
 
 router.route("/create").post(createCategory);
