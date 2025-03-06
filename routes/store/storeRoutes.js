@@ -1,12 +1,12 @@
 const express = require("express");
-const router = express.Router();
 const {
   createStore,
   getStoreByUserId,
   getStoreByStoreId,
   getStoresByAreaCode,
   getStoresByStoreType,
-} = require("../controllers/storeController");
+} = require("../../controllers/store/storeController");
+const router = express.Router();
 
 router.route("/creatstore").post(createStore);
 router.route("/getstorebyuserid/:user_id").post(getStoreByUserId);

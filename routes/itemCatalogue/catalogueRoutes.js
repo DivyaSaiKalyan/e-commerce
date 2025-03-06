@@ -1,10 +1,10 @@
 const express = require("express");
-const router = express.Router();
 const {
   createItemCatalogue,
   updateItemCatalogue,
   getItemByItemCode,
-} = require("../controllers/itemCatalogueController");
+} = require("../../controllers/ItemCatalogue/itemCatalogueController");
+const router = express.Router();
 
 router.route("/create").post(createItemCatalogue);
 router.route("/update/:item_code").put(updateItemCatalogue);

@@ -21,6 +21,12 @@ const createStartupIdea = asyncHandler(async (req, res) => {
     throw new Error("All fields are required");
   }
 
+  const getUser = await User.findOne({ where: { user_id } });
+  if (!getUser) {
+    res.status(404);
+    throw new Error("User not found");
+  }
+
   await sequelize.sync({ alter: true });
   const newStartupIdea = await StartupIdea.create({
     title_of_an_idea,

@@ -22,6 +22,7 @@ const DeliveryAddress = sequelize.define(
         model: User, // Foreign key reference
         key: "user_id",
       },
+      onUpdate: "CASCADE",
       onDelete: "CASCADE", // If user is deleted, delete delivery addresses
     },
     address_type: {
@@ -32,9 +33,13 @@ const DeliveryAddress = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    area_name: {
+    address1: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    address2: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     land_mark: {
       type: DataTypes.STRING,
@@ -48,13 +53,30 @@ const DeliveryAddress = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    postal_code: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     country: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    postal_code: {
+    lat_location: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    lng_location: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    address_proof_link: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    status: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: "New",
     },
   },
   {

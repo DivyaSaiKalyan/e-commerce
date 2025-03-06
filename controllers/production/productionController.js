@@ -1,13 +1,13 @@
 const asyncHandler = require("express-async-handler");
-const { sequelize } = require("../config/dbConnection");
+const { sequelize } = require("../../config/dbConnection");
 const {
   generateUniqueBatchNumberForProduction,
-} = require("../services/helperService");
-const Production = require("../models/Production/production");
-const User = require("../models/User/user");
-const ProductCatalogue = require("../models/eCommerce/productCatalogue");
-const ProductionMaterial = require("../models/Production/productionMaterial");
-const ProductionQualityCheck = require("../models/Production/productionQualityCheck");
+} = require("../../services/helperService");
+const Production = require("../../models/Production/production");
+const User = require("../../models/User/user");
+const ProductCatalogue = require("../../models/eCommerce/productCatalogue");
+const ProductionMaterial = require("../../models/Production/productionMaterial");
+const ProductionQualityCheck = require("../../models/Production/productionQualityCheck");
 
 //@dec create production
 //@route POST /production/create

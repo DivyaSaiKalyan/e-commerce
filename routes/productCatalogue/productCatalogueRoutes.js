@@ -1,11 +1,11 @@
 const express = require("express");
 const {
   createProductCatalogue,
+  createProductAndItemCatalogue,
   updateProductCatalogue,
   getProductByProductCode,
   getProductsByCategory,
-  createProductAndItemCatalogue,
-} = require("../controllers/productCatalogueController");
+} = require("../../controllers/productCatalogue/productCatalogueController");
 const router = express.Router();
 
 router.route("/create").post(createProductCatalogue);

@@ -1,17 +1,17 @@
 const asyncHandler = require("express-async-handler");
-const { sequelize } = require("../config/dbConnection");
+const { sequelize } = require("../../config/dbConnection");
 const {
   generateInvoiceNumber,
   calculateGST,
-} = require("../services/helperService");
-const OrderCartDetails = require("../models/eCommerce/orderCartDetails");
-const OrderTracking = require("../models/eCommerce/orderTracking");
-const OrderCancel = require("../models/eCommerce/orderCancel");
-const ProductCatalogue = require("../models/eCommerce/productCatalogue");
-const DeliveryAddress = require("../models/eCommerce/deliveryAddress");
-const OrderCart = require("../models/eCommerce/orderCart");
-const Store = require("../models/Production/store");
-const User = require("../models/User/user");
+} = require("../../services/helperService");
+const OrderCartDetails = require("../../models/eCommerce/orderCartDetails");
+const OrderTracking = require("../../models/eCommerce/orderTracking");
+const OrderCancel = require("../../models/eCommerce/orderCancel");
+const ProductCatalogue = require("../../models/eCommerce/productCatalogue");
+const DeliveryAddress = require("../../models/eCommerce/deliveryAddress");
+const OrderCart = require("../../models/eCommerce/orderCart");
+const Store = require("../../models/Production/store");
+const User = require("../../models/User/user");
 
 //@dec create order cart
 //@route POST /user/orderCart

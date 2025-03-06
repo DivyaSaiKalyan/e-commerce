@@ -2,7 +2,8 @@ const express = require("express");
 const {
   createStoreInventory,
   updateStoreInventory,
-} = require("../controllers/storeInventoryController");
+} = require("../../controllers/store/storeInventoryController");
+
 const router = express.Router();
 
 router.route("/createstoreinventory").post(createStoreInventory);

@@ -1,5 +1,4 @@
 const express = require("express");
-const { getDeliveryAddress } = require("../../controllers/userController");
 const {
   createUser,
   updateUser,
@@ -9,7 +8,6 @@ const {
 } = require("../../controllers/user/userController");
 const router = express.Router();
 
-router.route("/deliveryAddress/:user_id").post(getDeliveryAddress);
 router.route("/create").post(createUser);
 router.route("/login").post(loginUser);
 router.route("/update/:user_id").put(updateUser);

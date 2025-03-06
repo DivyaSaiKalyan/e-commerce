@@ -1,11 +1,10 @@
 const asyncHandler = require("express-async-handler");
-const { sequelize } = require("../config/dbConnection");
-const Category = require("../models/eCommerce/Category");
+const { sequelize } = require("../../config/dbConnection");
+const Category = require("../../models/eCommerce/Category");
 
 //@dec create Category
 //@route POST /category/create
 //@access public
-
 const createCategory = asyncHandler(async (req, res) => {
   const {
     category_type,
@@ -146,7 +145,12 @@ const getAllCategories = asyncHandler(async (req, res) => {
   // Convert the object to an array
   const formattedResponse = Object.values(categoryMap);
 
-  res.status(200).json(formattedResponse);
+  res.status(200).json({
+    success: true,
+    statusCode: 200,
+    message: "Categories found successfully",
+    data: formattedResponse,
+  });
 });
 
 module.exports = {

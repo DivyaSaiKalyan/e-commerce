@@ -35,6 +35,12 @@ const createCompany = asyncHandler(async (req, res) => {
     throw new Error("All fields are required");
   }
 
+  const getStartup = await StartupIdea.findByPk(startup_id);
+  if (!getStartup) {
+    res.status(400);
+    throw new Error("Startup not found");
+  }
+
   await sequelize.sync({ alter: true });
   const newCompany = await Company.create({
     startup_id,

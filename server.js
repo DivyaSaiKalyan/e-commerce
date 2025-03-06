@@ -2,14 +2,14 @@ const express = require("express");
 const errorHandler = require("./middleware/errorHandler");
 const dotenv = require("dotenv").config();
 const { connectDB } = require("./config/dbConnection");
-const catalogueRoutes = require("./routes/catalogueRoutes");
+const catalogueRoutes = require("./routes/itemCatalogue/catalogueRoutes");
 const categoryRoutes = require("./routes/categoryRoutes");
-const productCatalogueRoutes = require("./routes/productCatalogueRoutes");
+const productCatalogueRoutes = require("./routes/productCatalogue/productCatalogueRoutes");
 const orderCartRoutes = require("./routes/orderCartRoutes");
 const userRoutes = require("./routes/user/userRoutes");
 const productionRoutes = require("./routes/productionRoutes");
-const storeRoutes = require("./routes/storeRoutes");
-const storeInventoryRoutes = require("./routes/storeInventoryRoutes");
+const storeRoutes = require("./routes/store/storeRoutes");
+const storeInventoryRoutes = require("./routes/store/storeInventoryRoutes");
 const bankRoutes = require("./routes/payment/bankRoutes");
 const cashCenterRoutes = require("./routes/payment/cashCenterRoutes");
 const currencyRoutes = require("./routes/payment/currencyRoutes");
@@ -26,6 +26,9 @@ const vgcStockRoutes = require("./routes/IIO/vgcRoutes");
 const dividentRoutes = require("./routes/IIO/dividendRoutes");
 const investmentRoutes = require("./routes/IIO/investmentRoutes");
 const walletRoutes = require("./routes/user/walletRoutes");
+const mapTeamRoutes = require("./routes/user/mapTeamRoutes");
+const employeeRoutes = require("./routes/user/employeeRoutes");
+const deliveryRoutes = require("./routes/user/addressRoutes");
 
 const app = express();
 
@@ -38,6 +41,8 @@ app.use("/category/itemCatalogue/productCatalogue", productCatalogueRoutes);
 app.use("/ordercart", orderCartRoutes);
 app.use("/user", userRoutes);
 app.use("/user/wallet", walletRoutes);
+app.use("/user/map-team", mapTeamRoutes);
+app.use("/user/employee", employeeRoutes);
 app.use("/production", productionRoutes);
 app.use("/store", storeRoutes);
 app.use("/storeinventory", storeInventoryRoutes);
@@ -56,6 +61,8 @@ app.use("/user/stockOrderTransfer", stockOrderTransferRoutes);
 app.use("/stock", vgcStockRoutes);
 app.use("/stock/divident", dividentRoutes);
 app.use("/stock/investment", investmentRoutes);
+app.use("/user/delivery-address", deliveryRoutes);
+
 app.use(errorHandler);
 connectDB();
 

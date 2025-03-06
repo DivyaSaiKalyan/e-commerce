@@ -50,9 +50,9 @@ const MapTeam = sequelize.define(
 );
 
 // Define self-association (Team leads another team)
-MapTeam.belongsTo(MapTeam, {
-  foreignKey: "lead_team_id",
-  as: "LeadTeam",
-});
+// MapTeam.belongsTo(MapTeam, {
+//   foreignKey: "lead_team_id",
+//   as: "LeadTeam",
+// });
 
 module.exports = MapTeam;

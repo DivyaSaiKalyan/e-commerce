@@ -42,7 +42,7 @@ const MapTeamProfitShare = sequelize.define(
 // Define Association: Each profit share entry belongs to a specific team
 MapTeamProfitShare.belongsTo(MapTeam, {
   foreignKey: "team_id",
-  as: "Team",
+  as: "MapTeam",
 });
 
 module.exports = MapTeamProfitShare;

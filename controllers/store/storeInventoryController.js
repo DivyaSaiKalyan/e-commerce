@@ -1,8 +1,8 @@
 const asyncHandler = require("express-async-handler");
-const { sequelize } = require("../config/dbConnection");
-const StoreInventory = require("../models/Production/storeInventory");
-const ProductCatalogue = require("../models/eCommerce/productCatalogue");
-const Store = require("../models/Production/store");
+const { sequelize } = require("../../config/dbConnection");
+const StoreInventory = require("../../models/Production/storeInventory");
+const ProductCatalogue = require("../../models/eCommerce/productCatalogue");
+const Store = require("../../models/Production/store");
 
 //@dec create store Inventory
 //@route POST /store/createstoreinventory
