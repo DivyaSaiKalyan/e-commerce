@@ -29,6 +29,8 @@ const employeeRoutes = require("./user/employeeRoutes");
 const deliveryRoutes = require("./user/addressRoutes");
 const educationRoutes = require("./user/educationRoutes");
 const jobExperienceRoutes = require("./user/jobExperienceRoutes");
+const gapProfileRoutes = require("./user/gapProfileRoutes");
+const gapAccountReferralsRoutes = require("./user/gapAccountReferralsRoutes");
 
 const router = express.Router();
 
@@ -61,5 +63,7 @@ router.use("/stock/investment", investmentRoutes);
 router.use("/user/delivery-address", deliveryRoutes);
 router.use("/user/education", educationRoutes);
 router.use("/user/job-experience", jobExperienceRoutes);
+router.use("/user/gap-profile", gapProfileRoutes);
+router.use("/user/gap-account-referrals", gapAccountReferralsRoutes);
 
 module.exports = router;

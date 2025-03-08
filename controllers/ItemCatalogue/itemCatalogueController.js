@@ -6,7 +6,6 @@ const Category = require("../../models/eCommerce/Category");
 //@dec create Item Catalogue
 //@route POST /itemCatalogue/create
 //@access public
-
 const createItemCatalogue = asyncHandler(async (req, res) => {
   const { category_code, item_name, item_icon } = req.body;
 
